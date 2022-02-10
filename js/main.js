@@ -1,34 +1,60 @@
+//Inizializzazione VUE
+const app = new Vue (
+    {
 
+        el: '#root',
+        data: {
+            //Dichiarazione array di oggetti
+            items: [
+                {
+                    url: 'img/01.jpg',
+                    name: "Svezia",
+                    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis."
+                },
+                {
+                    url: 'img/02.jpg',
+                    name: "Svizzera",
+                    text: "Lorem ipsum."
+                },
+                {
+                    url: 'img/03.jpg',
+                    name: "Gran Bretagna",
+                    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+                },
+                {
+                    url: 'img/04.jpg',
+                    name: "Germania",
+                    text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam."
+                },
+                {
+                    url: 'img/05.jpg',
+                    name: "Paradise",
+                    text: "Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam."
+                }
+            ],
 
-const items = [
-    {
-        url:'img/01.jpg',
-        name:'Svezia',
-        text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.'
-    },
-    {
-        url:'img/02.jpg',
-        name:'Svizzera',
-        text:'Lorem ipsum'
-    },
-    {
-        url:'img/03.jpg',
-        name:'Gran Bretagna',
-        text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.'
-    },
-    {
-        url:'img/04.jpg',
-        name:'Germania',
-        text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,'
-    },
-    {
-        url:'img/05.jpg',
-        name:'Paradise',
-        text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,'
+            active: 0,
+        },
+        methods: {
+            //Dichiarazione funzione per tornare al inizio del array delle immagini
+            prevPic() {
+                this.active--;
+                if (this.active < 0 ) {
+                    this.active = this.items.length - 1;
+                }
+            },
+            //Dichiarazione funzione per tornare alla fine del array delle immagini
+            nextPic() {
+                this.active++;
+                if (this.active == this.active.length) {
+                    this.active = 0;
+                }
+            }
+        },
     }
-];
+);
 
-const itemsRef = document.getElementsByClassName('items')[0];
+/* const itemsRef = document.getElementsByClassName('items')[0];
 const thumbsRef = document.getElementsByClassName('thumbs')[0];
 let item = '';
 let thumb = '';
@@ -93,4 +119,4 @@ next.addEventListener('click', function() {
         document.querySelector('.thumb.active').classList.remove('active');
         document.getElementsByClassName('thumb')[active].classList.add('active');
     }
-});
+}); */
